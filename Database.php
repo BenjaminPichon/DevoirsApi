@@ -9,7 +9,7 @@ class Database {
 
     public function __construct()
     {
-        $this->pdo = new PDO("mysql:host=localhost8889:;dbname=db-banque", 'root', '');
+        $this->pdo = new PDO("mysql:host=localhost;dbname=devoirs", 'root', '');
         $this->app=new App();
     }
 
