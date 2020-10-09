@@ -11,6 +11,7 @@ class Database {
     {
         $this->pdo = new PDO("mysql:host=localhost;dbname=devoirs", 'root', '');
         $this->app=new App();
+        var_dump($this->pdo);
     }
 
     /**

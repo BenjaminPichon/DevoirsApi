@@ -1,0 +1,3 @@
+RewriteEngine on 
+RewriteRule ^/?([a-z]+)/([0-9]*)$ /DevoirsApi/?page=$1&id=$2 [L]
+RewriteRule ^/?([a-z]+)$ /DevoirsApi/?page=$1 [L]
