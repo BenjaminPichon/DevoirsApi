@@ -1,3 +1,4 @@
-RewriteEngine on 
-RewriteRule ^/?([a-z]+)/([0-9]*)$ /DevoirsApi/?page=$1&id=$2 [L]
-RewriteRule ^/?([a-z]+)$ /DevoirsApi/?page=$1 [L]
+RewriteEngine on
+RewriteRule ^/?([a-z]+)$ /devoirsapi/?page=$1 [L]
+RewriteRule ^/?([a-z]+)/([0-9]*)$ /devoirsapi/?page=$1&id=$2 [L]
+RewriteRule ^/?([a-z]+)/([a-z]+)$ /devoirsapi/?page=$1&method=$2 [L]
