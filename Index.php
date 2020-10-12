@@ -1,5 +1,6 @@
 <?php
 
+
 use Firebase\JWT\JWT;
 
 require 'App.php';
@@ -26,6 +27,7 @@ if (key_exists("page", $_GET)) {
         var_dump($decoded);
        }
     }
+
 
 } else {
     $app->sendData("Erreur de choix de table");

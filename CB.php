@@ -1,6 +1,7 @@
 <?php 
     require "General.php";
 
-    class Cb extends General{
+    class CB extends General{
+
         protected $table = "cb";
     }

@@ -1,4 +1,5 @@
 <?php
+
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         if (key_exists("id", $_GET)) {
