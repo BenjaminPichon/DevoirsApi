@@ -1,6 +1,6 @@
 <?php
 // methods accessibles par tout le monde
-// if (empty($role)) {
+ if (empty($role)) {
     switch ($_SERVER["REQUEST_METHOD"]) {
         case 'POST':
             if($page == "User"){
@@ -11,11 +11,10 @@
                 }
             }
         break;
-
         default:
         $app->sendData("Vous n'avez pas l'autorisation. Connectez-vous");
     }
-// } else {
+ } else {
     // methods accessibles par quelqu'un de connecté
     switch ($_SERVER["REQUEST_METHOD"]) {
         case 'GET':
@@ -55,4 +54,4 @@
             $app->sendData("Erreur de méthode de requête");
             break;
     }
-// }
+}
