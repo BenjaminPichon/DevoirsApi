@@ -30,7 +30,7 @@
             break;
         
             case 'POST':
-                    // $class->save($_POST);
+                    $class->save($_POST);
             break;
 
             case 'DELETE':
