@@ -15,6 +15,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     
         case 'POST':
             $class->save($_POST);
+            case 'POST':
+                if($page == "Transaction"){
+                    if ($method === "payement") {
+                        $class->saved($_POST, $_POST);
+                    } else {
+                        $class->save($_POST);
+                    }
+                }
+            break;
         break;
 
         case 'DELETE':

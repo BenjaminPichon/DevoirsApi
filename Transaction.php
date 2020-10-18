@@ -28,6 +28,7 @@
                 $param["date"]= date('d-m-Y');
                 $this->db->prepare($statement, 'save', $param);
                 $this->db->prepare($statements, 'put', $params);
+                echo "payement effectué";
             }
             else{
                 echo "pas assez de fond";
