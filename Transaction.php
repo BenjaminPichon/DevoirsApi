@@ -1,15 +1,43 @@
 <?php 
     require "General.php";
 
+    use OpenApi\Annotations as OA;
+
     class Transaction extends General{
         protected $table = "transaction";
+
+
+ /**
+        *@OA\Get(
+        *   path="/transactions",
+        *   @OA\Response(
+        *       response="200",
+        *       description="Solde suffisant",
+        *       @OA\JsonContent(type="array", description="", @OA\Items(ref="#/components/schemas/Transaction")),
+        *       
+        *),
+
+        *@OA\Response(
+        *          response="404",
+        *          description="Erreur 404",
+        *          @OA\JsonContent(
+        *              @OA\Property(
+        *                  property="message",
+        *                  type="string",
+        *                  example="Solde insuffisant"
+        *              )
+        *          ),
+        *      )
+        *)
+    */
+
+
     /**
      * Save user
      *
      * @param array $param
      * @return void
      */
-
 
         public function saved($param, $params){
             $statement = "INSERT INTO transaction (date, montant, valide, moyenPaiement, compte_id)

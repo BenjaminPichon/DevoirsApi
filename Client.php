@@ -1,7 +1,62 @@
 <?php 
     require "General.php";
 
+use OpenApi\Annotations as OA;
+
     class Client extends General{
+
+/**
+        *@OA\Get(
+        *   path="/clients",
+        *   @OA\Response(
+        *       response="200",
+        *       description="Connecté",
+        *       @OA\JsonContent(type="array", description="", @OA\Items(ref="#/components/schemas/Client")),
+        *       
+        *),
+
+        *@OA\Response(
+        *          response="404",
+        *          description="Erreur 404",
+        *          @OA\JsonContent(
+        *              @OA\Property(
+        *                  property="message",
+        *                  type="string",
+        *                  example="Utilisateur ou mots de passe incorrecte"
+        *              )
+        *          ),
+        *      )
+        *)
+
+   * @OA\Post(
+     *      path="/clients",
+     *      @OA\Response(
+     *          response="200",
+     *          description="Compte enregistré",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string",
+     *                  example="Données sauvegardées"
+     *              )
+     *          )
+     *      ),
+     *     @OA\Response(
+        *          response="404",
+        *          description="Erreur 404",
+        *          @OA\JsonContent(
+        *              @OA\Property(
+        *                  property="message",
+        *                  type="string",
+        *                  example="Il y a eux un problème lors de la création"
+        *              )
+        *          ),
+        *      )
+*)
+    */
+
+
+
             /**
          * Client connexion
          *

@@ -1,0 +1,283 @@
+openapi: 3.0.0
+info:
+  title: 'Mon API de banque'
+  description: 'Cette api me sert à ouvrir des données d''une banque à des clients externe  '
+  version: '0.1'
+servers:
+  -
+    url: 'localhost:3306'
+    description: 'partie fixe de notre url'
+paths:
+  /users:
+    get:
+      responses:
+        '200':
+          description: 'Liste des utilisateurs'
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Utilisateur ou mots de passe incorrecte' }
+                type: object
+    post:
+      responses:
+        '200':
+          description: 'Compte enregistré'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Données sauvegardées' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Il y a eux un problème lors de la création' }
+                type: object
+  /transactions:
+    get:
+      responses:
+        '200':
+          description: 'Solde suffisant'
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Solde insuffisant' }
+                type: object
+  /clients:
+    get:
+      responses:
+        '200':
+          description: Connecté
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Utilisateur ou mots de passe incorrecte' }
+                type: object
+    post:
+      responses:
+        '200':
+          description: 'Compte enregistré'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Données sauvegardées' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Il y a eux un problème lors de la création' }
+                type: object
+  /comptes:
+    get:
+      responses:
+        '200':
+          description: 'Compte récupéré'
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: array
+                items:
+                  $ref: '#/components/schemas/Compte'
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Compte introuvable' }
+                type: object
+    put:
+      responses:
+        '200':
+          description: 'Compte modifié'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Le compte à été modifié' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Le compte n''a pas été modifié' }
+                type: object
+    post:
+      responses:
+        '200':
+          description: 'Compte enregistré'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Données sauvegardées' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Il y a eux un problème lors de la création' }
+                type: object
+  /CB:
+    get:
+      responses:
+        '200':
+          description: 'Compte récupéré'
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: array
+                items:
+                  $ref: '#/components/schemas/CB'
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Compte introuvable' }
+                type: object
+    put:
+      responses:
+        '200':
+          description: 'CB modifié'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'La CB à été modifié' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'La CB n''a pas été modifié' }
+                type: object
+    post:
+      responses:
+        '200':
+          description: 'CB enregistré'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Données sauvegardées' }
+                type: object
+        '404':
+          description: 'Erreur 404'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: { type: string, example: 'Il y a eux un problème lors de l''enregistrement' }
+                type: object
+components:
+  schemas:
+    User:
+      properties:
+        id:
+          type: integer
+        nom:
+          type: string
+        prenom:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      type: object
+    Transaction:
+      properties:
+        date:
+          type: string
+        montant:
+          type: integer
+        valid:
+          type: string
+        moyenPaiement:
+          type: string
+        id:
+          type: integer
+      type: object
+    Client:
+      properties:
+        nom:
+          type: string
+        password:
+          type: string
+      type: object
+    Compte:
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+        fond:
+          type: integer
+        type:
+          type: string
+        actif:
+          type: integer
+      type: object
+    CB:
+      properties:
+        uuid:
+          type: integer
+        exp:
+          type: integer
+        cryptogramme:
+          type: integer
+        code:
+          type: integer
+        active:
+          type: integer
+        user_id:
+          type: integer
+        compte_id:
+          type: integer
+      type: object
