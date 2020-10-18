@@ -52,7 +52,6 @@
             foreach ($param as $key => $value) {
                 $data[$key] = htmlspecialchars($value);
             }
-
             $this->db->prepare($statement, "save", $data);
         }
 
