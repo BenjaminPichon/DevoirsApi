@@ -36,7 +36,7 @@
 
             case 'DELETE':
                 //methods accessibles par un admin uniquement
-                if (in_array("ROLE_ADMIN", $role)) {
+                if (in_array("ROLE_BANQUE", $role)) {
                     if(intval($_GET["id"])){
                         $class->delete($_GET["id"]);
                     } else {

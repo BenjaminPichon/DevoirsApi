@@ -1,5 +1,22 @@
 <?php
 
+if (empty($role)) {
+    switch ($_SERVER["REQUEST_METHOD"]) {
+        case 'POST':
+            if($page == "Client"){
+                if ($method === "connexion") {
+                    $class->connexion($_POST);
+                } else {
+                    $class->save($_POST);
+                }
+            }
+        break;
+
+        default:
+        $app->sendData("Vous n'avez pas l'autorisation. Connectez-vous");
+    }
+} else {
+
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         if (key_exists("id", $_GET)) {
@@ -14,16 +31,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         break;
     
         case 'POST':
-            $class->save($_POST);
-            case 'POST':
-                if($page == "Transaction"){
-                    if ($method === "payement") {
-                        $class->saved($_POST, $_POST);
-                    } else {
+            if($page == "Transaction"){
+                if ($method === "payement") {
+                    $class->saved($_POST, $_POST);
+                } else {
                         $class->save($_POST);
                     }
                 }
-            break;
+            $class->save($_POST);
+            
         break;
 
         case 'DELETE':
@@ -40,4 +56,5 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     default:
         $app->sendData("Erreur de méthode de requête");
         break;
+}
 }
